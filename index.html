@@ -1,1 +1,327 @@
-hello world
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165047740-3"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-165047740-3');
+      </script>
+      
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="Elasticsearch visual desktop client for MacOS, Windows, Linux. Elasticsearch GUI client allows you to manage your Elasticsearch cluster by clicking buttons." />
+    <meta name="author" content="Anton Korotkov" />
+    <title>Elasticsearch Desktop Client for MacOS, Windows, Linux - Elastron</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/logo.png" />
+    <!-- Google fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "softwareapplication",
+          "name": "Elastron",
+          "operatingSystem": "MacOS, Windows, Linux",
+          "applicationCategory": "DeveloperApplication",
+          "downloadUrl": "https://github.com/antonkorotkov/elastron/releases/latest",
+          "releaseNotes": "Stability and security updates",
+          "offers": {
+            "@type": "Offer",
+            "price": "0.00",
+            "priceCurrency": "USD"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.5",
+            "ratingCount": "927"
+          }
+        }
+        </script>
+	<meta property="og:url" content="https://elastron.eney.solutions/" />
+	<meta property="og:title" content="Elasticsearch Desktop Client for MacOS, Windows, Linux - Elastron" />
+	<meta property="og:image" content="https://elastron.eney.solutions/assets/img/logo.png" />
+	<meta property="og:description" content="Elasticsearch desktop GUI client allows you to manage your Elasticsearch cluster by clicking buttons. An alternative to Elasticsearch Plugin Head." />
+	<meta property="og:type" content="application" />
+  </head>
+  <body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/#page-top">
+          <img loading="lazy" src="assets/img/logo.png" alt="Elastron Logo"/>
+          Elastron
+        </a>
+        <button
+          class="navbar-toggler navbar-toggler-right"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          Menu<i class="fas fa-bars ml-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#features" onclick="gtag('event', 'click', {'event_category': 'website','event_label': 'features'})"
+                >Features</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" target="_blank" href="https://www.youtube.com/playlist?list=PLuZZ38tzXXqDQ6YDwpu7l-2Cs3WV2kKJj" onclick="gtag('event', 'click', {'event_category': 'website','event_label': 'demo'})">Demo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#download" onclick="gtag('event', 'click', {'event_category': 'website','event_label': 'download'})"
+                >Download</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+      <div class="container">
+        <div class="masthead-subheading">Manage Your Elasticsearch Cluster</div>
+        <div class="masthead-heading text-uppercase">
+          by clicking buttons
+        </div>
+        <a
+          class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
+          href="#download"
+		  onclick="gtag('event', 'click', {'event_category': 'website','event_label': 'download'})"
+          >Download Now</a
+        >
+      </div>
+    </header>
+
+    <!-- Features-->
+    <section class="page-section" id="features">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-heading text-uppercase">Features</h2>
+          <h3 class="section-subheading text-muted">
+            Things it can do now and planned
+          </h3>
+		  <p class="mb-5">This Elasticsearch GUI client allows you to connect the Elasticsearch server and manage data and configuration. You can install this desktop client on your Mac, Windows or Linux. Elasticsearch client can be used to view and edit mappings, settings, aliases, and indices. You can perform the search operations on your Elasticsearch indices using this desktop client application. The Elasticsearch results can be displayed in different view modes. This desktop client lets you control the Indices, Shards and Allocation stats and configuration. It is possible to import and export data and configuration of Elasticsearch using this desktop client for OSX, Windows and Linux. This is a great alternative to Elasticsearch Plugin Head. In the latest version you can do a profiling of the request. Documents updating and reindexing is available too.</p>
+          <h3>Important!</h3>
+          <p class="mb-5">Since version 1.5.0 you have to re-install the application.</p>
+          <h3>How to open the app?</h3>
+          <p class="mb-5">If you cannot open the app on MacOS for the first time use <code>Open Anyway</code> security feature in order to open the app to avoid MacOS security warning. This is 100% safe.</p>
+        </div>
+        <ul class="timeline">
+          <li>
+            <div class="timeline-image">
+              <img
+			  	loading="lazy"
+                class="rounded-circle img-fluid"
+                src="assets/img/dash-board-2.png"
+                alt="Dashboard Feature"
+              />
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>Dashboard</h4>
+                <h6 class="subheading">Available</h6>
+              </div>
+              <div class="timeline-body">
+                <p class="text-muted">
+                  The dashboard to display Indices, Shards and Allocation stats
+                  and configuration.
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+              <img
+			    loading="lazy"
+                class="rounded-circle img-fluid"
+                src="assets/img/search.png"
+                alt="Search Feature"
+              />
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>Search</h4>
+                <h6 class="subheading">Available</h6>
+              </div>
+              <div class="timeline-body">
+                <p class="text-muted">
+                  Search over indices using body query or uri query parameters.
+                  Sorting and pagination is available. Different search results view for hits, aggregations, and raw response.
+                </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-image">
+              <img
+			    loading="lazy"
+                class="rounded-circle img-fluid"
+                src="assets/img/index.png"
+                alt="Index Management Feature"
+              />
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>Index Management</h4>
+                <h6 class="subheading">Available</h6>
+              </div>
+              <div class="timeline-body">
+                <p class="text-muted">
+                  Manage settings, mappings, aliases, templates and so on.
+                  Create, delete and wipe indices.
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+              <img
+			    loading="lazy"
+                class="rounded-circle img-fluid"
+                src="assets/img/update.png"
+                alt="Auto Updates"
+              />
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>Automatic Updates</h4>
+                <h6 class="subheading">Available</h6>
+              </div>
+              <div class="timeline-body">
+                <p class="text-muted">
+                  Elastron updates itself automatically. No need to check for the newer version manually. And it is free!
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="timeline">
+            <div class="timeline-image">
+              <img
+			    loading="lazy"
+                class="rounded-circle img-fluid"
+                src="assets/img/dark-mode.jpg"
+                alt="Dark Mode"
+              />
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>Dark Mode</h4>
+                <h6 class="subheading">Available</h6>
+              </div>
+              <div class="timeline-body">
+                <p class="text-muted">
+                  If you are a dark-side developer, Dark Mode is here for you!
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+              <img
+			    loading="lazy"
+                class="rounded-circle img-fluid"
+                src="assets/img/ie.png"
+                alt="Import Export feature"
+              />
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>Import and Export</h4>
+                <h6 class="subheading">Available</h6>
+              </div>
+              <div class="timeline-body">
+                <p class="text-muted">
+                  Create data and configuration dumps to a file or the another index and/or server!
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+              <h4>More<br />Features<br />To Come!</h4>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Download-->
+    <section class="page-section" id="download" style="background: #eee;">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-heading text-uppercase">Download</h2>
+          <h3 class="section-subheading text-muted">
+            For MacOS, Windows, Linux
+          </h3>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-6">
+            <h4 class="my-3">Elastron</h4>
+            <p class="text-muted">
+              Basic version of Elastron for MacOS, Windows, Linux. <br />Includes all free
+              features.<br />
+            </p>
+            <a
+			  target="_blank"
+              class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
+              href="https://github.com/antonkorotkov/elastron/releases/latest"
+			  onclick="gtag('event', 'app', {'event_category': 'usage','event_label': 'download'});gtag('event', 'app', {'event_category': 'download_version','event_label': 'latest'});"
+              >Free Download</a
+            >
+          </div>
+          <div class="col-md-6">
+            <h4 class="my-3">Elastron PRO</h4>
+            <p class="text-muted">
+              We decided that all the PRO features will be free too!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer-->
+    <footer class="footer py-4">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-4 text-lg-left">Copyright &copy; Elastron 2020 - Now</div>
+          <div class="col-lg-4 my-3 my-lg-0">
+            🇺🇦 Слава Україні! Героям Слава!
+          </div>
+          <div class="col-lg-4 text-lg-right">
+            <a class="mr-3" href="/privacy.html">Privacy Policy</a>
+            <a href="/terms.html">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" SameSite=None></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Contact form JS-->
+    <script src="/mail/jqBootstrapValidation.js"></script>
+    <script src="/mail/contact_me.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
