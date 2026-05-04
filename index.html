@@ -1,324 +1,525 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165047740-3"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
 
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165047740-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
         gtag('config', 'UA-165047740-3');
-      </script>
-      
+    </script>
+
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="Elasticsearch visual desktop client for MacOS, Windows, Linux. Elasticsearch GUI client allows you to manage your Elasticsearch cluster by clicking buttons." />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description"
+        content="Elastron is the native desktop GUI client for Elasticsearch 8 and 9 on macOS, Windows, and Linux. Manage indices and documents, run queries, profile and explain — by clicking buttons. Free and open source." />
     <meta name="author" content="Anton Korotkov" />
-    <title>Elasticsearch Desktop Client for MacOS, Windows, Linux - Elastron</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/logo.png" />
-    <!-- Google fonts-->
+    <meta name="theme-color" content="#09090b" />
+    <title>Elastron — Elasticsearch desktop GUI client for macOS, Windows, Linux</title>
+    <link rel="icon" type="image/png" href="assets/img/logo.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <!-- Core theme CSS (includes Bootstrap)-->
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+
     <link href="css/styles.css" rel="stylesheet" />
-    <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
+
+    <!-- Schema.org -->
     <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "softwareapplication",
-          "name": "Elastron",
-          "operatingSystem": "MacOS, Windows, Linux",
-          "applicationCategory": "DeveloperApplication",
-          "downloadUrl": "https://github.com/antonkorotkov/elastron/releases/latest",
-          "releaseNotes": "Stability and security updates",
-          "offers": {
-            "@type": "Offer",
-            "price": "0.00",
-            "priceCurrency": "USD"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.5",
-            "ratingCount": "927"
-          }
-        }
-        </script>
-	<meta property="og:url" content="https://elastron.eney.solutions/" />
-	<meta property="og:title" content="Elasticsearch Desktop Client for MacOS, Windows, Linux - Elastron" />
-	<meta property="og:image" content="https://elastron.eney.solutions/assets/img/logo.png" />
-	<meta property="og:description" content="Elasticsearch desktop GUI client allows you to manage your Elasticsearch cluster by clicking buttons. An alternative to Elasticsearch Plugin Head." />
-	<meta property="og:type" content="application" />
-  </head>
-  <body id="page-top">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="/#page-top">
-          <img loading="lazy" src="assets/img/logo.png" alt="Elastron Logo"/>
-          Elastron
-        </a>
-        <button
-          class="navbar-toggler navbar-toggler-right"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarResponsive"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          Menu<i class="fas fa-bars ml-1"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav text-uppercase ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#features" onclick="gtag('event', 'click', {'event_category': 'website','event_label': 'features'})"
-                >Features</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" target="_blank" href="https://www.youtube.com/playlist?list=PLuZZ38tzXXqDQ6YDwpu7l-2Cs3WV2kKJj" onclick="gtag('event', 'click', {'event_category': 'website','event_label': 'demo'})">Demo</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#download" onclick="gtag('event', 'click', {'event_category': 'website','event_label': 'download'})"
-                >Download</a
-              >
-            </li>
-          </ul>
+  {
+    "@context": "https://schema.org",
+    "@type": "softwareapplication",
+    "name": "Elastron",
+    "operatingSystem": "MacOS, Windows, Linux",
+    "applicationCategory": "DeveloperApplication",
+    "downloadUrl": "https://github.com/antonkorotkov/elastron/releases/latest",
+    "releaseNotes": "Stability and security updates",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://elastron.eney.solutions/" />
+    <meta property="og:title" content="Elastron — Elasticsearch desktop GUI client" />
+    <meta property="og:image" content="https://elastron.eney.solutions/assets/img/logo.png" />
+    <meta property="og:description"
+        content="Native desktop GUI for Elasticsearch 8 and 9 on macOS, Windows, Linux. Manage indices and documents, run queries, profile and explain — by clicking buttons. Free and open source." />
+    <meta property="og:type" content="website" />
+</head>
+
+<body id="page-top">
+
+    <!-- ============================================================ Nav -->
+    <nav class="nav" id="nav">
+        <div class="container nav-inner">
+            <a class="nav-brand" href="/#page-top">
+                <img loading="eager" src="assets/img/logo.png" alt="Elastron logo" width="26" height="26" />
+                <span>Elastron</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#features"
+                    onclick="gtag('event', 'click', {'event_category': 'website','event_label': 'features'})">Features</a>
+                <a href="https://www.youtube.com/playlist?list=PLuZZ38tzXXqDQ6YDwpu7l-2Cs3WV2kKJj" target="_blank"
+                    rel="noopener"
+                    onclick="gtag('event', 'click', {'event_category': 'website','event_label': 'demo'})">Demo</a>
+                <a href="#faq">FAQ</a>
+                <a href="#download"
+                    onclick="gtag('event', 'click', {'event_category': 'website','event_label': 'download'})">Download</a>
+                <a class="nav-stars" href="https://github.com/antonkorotkov/elastron" target="_blank" rel="noopener"
+                    aria-label="View Elastron on GitHub">
+                    <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 2l2.9 6.9L22 9.7l-5.4 4.7L18.3 22 12 18.3 5.7 22l1.7-7.6L2 9.7l7.1-.8L12 2z" />
+                    </svg>
+                    <span data-star-count></span>
+                </a>
+            </div>
+
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+            </button>
         </div>
-      </div>
     </nav>
-    <!-- Masthead-->
-    <header class="masthead">
-      <div class="container">
-        <div class="masthead-subheading">Manage Your Elasticsearch Cluster</div>
-        <div class="masthead-heading text-uppercase">
-          by clicking buttons
+
+    <!-- =========================================================== Hero -->
+    <header class="hero">
+        <div class="container hero-grid">
+
+            <div class="hero-copy">
+                <span class="eyebrow">Manage your Elasticsearch cluster</span>
+                <h1 class="hero-headline">
+                    by clicking <span class="accent">buttons.</span>
+                </h1>
+                <p class="hero-sub">
+                    A desktop GUI for Elasticsearch on macOS, Windows, and Linux.
+                    Free, open source, and built for engineers who'd rather not memorize
+                    the bulk API.
+                </p>
+
+                <div class="hero-cta">
+                    <a class="btn btn-primary" data-download-primary
+                        href="https://github.com/antonkorotkov/elastron/releases/latest" target="_blank" rel="noopener"
+                        onclick="gtag('event', 'app', {'event_category': 'usage','event_label': 'download'});gtag('event', 'app', {'event_category': 'download_version','event_label': 'latest'});">
+                        <span data-platform-icon></span>
+                        Download for <span data-platform-label>your OS</span>
+                        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M5 12h14M13 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a class="btn btn-secondary" href="https://github.com/antonkorotkov/elastron" target="_blank"
+                        rel="noopener">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M12 .5a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.4 3.6 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A12 12 0 0012 .5z" />
+                        </svg>
+                        Source on GitHub
+                    </a>
+                </div>
+
+                <div class="hero-meta">
+                    <span><b>Free</b> · Open source · MIT</span>
+                    <span class="dot">·</span>
+                    <span><b data-version>v2.0.0</b> released <span data-version-date>recently</span></span>
+                </div>
+            </div>
+
+            <div class="hero-stage" aria-hidden="true">
+                <!-- ============ Cluster constellation (background) ============ -->
+                <div class="cluster">
+                    <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img"
+                        aria-label="Animated Elasticsearch cluster topology">
+                        <!-- Edges first so nodes draw on top -->
+                        <g class="edges">
+                            <path class="edge" d="M 140,300 L 80,130" />
+                            <path class="edge" d="M 140,300 L 200,80" />
+                            <path class="edge" d="M 140,300 L 70,460" />
+                            <path class="edge" d="M 140,300 L 240,540" />
+                            <path class="edge" d="M 140,300 L 760,320" />
+                            <path class="edge" d="M 80,130  L 200,80" />
+                            <path class="edge" d="M 200,80  L 320,40" />
+                            <path class="edge" d="M 320,40  L 620,70" />
+                            <path class="edge" d="M 620,70  L 720,180" />
+                            <path class="edge" d="M 720,180 L 760,320" />
+                            <path class="edge" d="M 760,320 L 720,460" />
+                            <path class="edge" d="M 720,460 L 600,540" />
+                            <path class="edge" d="M 600,540 L 420,580" />
+                            <path class="edge" d="M 420,580 L 240,540" />
+                            <path class="edge" d="M 240,540 L 70,460" />
+                            <path class="edge" d="M 200,80  L 620,70" />
+                            <path class="edge" d="M 320,40  L 720,180" />
+                            <path class="edge" d="M 760,320 L 600,540" />
+                        </g>
+
+                        <!-- Pulses get inserted here at runtime -->
+                        <g class="pulses"></g>
+
+                        <!-- Nodes -->
+                        <g class="nodes">
+                            <g class="node node--primary">
+                                <circle cx="140" cy="300" r="22" />
+                                <circle class="node-core" cx="140" cy="300" r="6" />
+                                <text class="node-label" x="140" y="338" text-anchor="middle">primary</text>
+                            </g>
+
+                            <g class="node node--lit">
+                                <circle cx="80" cy="130" r="11" />
+                                <circle class="node-core" cx="80" cy="130" r="3" />
+                            </g>
+                            <g class="node">
+                                <circle cx="200" cy="80" r="9" />
+                                <circle class="node-core" cx="200" cy="80" r="2.5" />
+                            </g>
+                            <g class="node node--mobile-hide">
+                                <circle cx="320" cy="40" r="6" />
+                                <circle class="node-core" cx="320" cy="40" r="2" />
+                            </g>
+                            <g class="node">
+                                <circle cx="620" cy="70" r="10" />
+                                <circle class="node-core" cx="620" cy="70" r="3" />
+                            </g>
+                            <g class="node node--mobile-hide">
+                                <circle cx="720" cy="180" r="7" />
+                                <circle class="node-core" cx="720" cy="180" r="2.5" />
+                            </g>
+                            <g class="node node--lit">
+                                <circle cx="760" cy="320" r="11" />
+                                <circle class="node-core" cx="760" cy="320" r="3.5" />
+                            </g>
+                            <g class="node node--mobile-hide">
+                                <circle cx="720" cy="460" r="7" />
+                                <circle class="node-core" cx="720" cy="460" r="2.5" />
+                            </g>
+                            <g class="node node--lit">
+                                <circle cx="600" cy="540" r="10" />
+                                <circle class="node-core" cx="600" cy="540" r="3" />
+                            </g>
+                            <g class="node node--mobile-hide">
+                                <circle cx="420" cy="580" r="7" />
+                                <circle class="node-core" cx="420" cy="580" r="2.5" />
+                            </g>
+                            <g class="node">
+                                <circle cx="240" cy="540" r="9" />
+                                <circle class="node-core" cx="240" cy="540" r="2.5" />
+                            </g>
+                            <g class="node node--lit">
+                                <circle cx="70" cy="460" r="10" />
+                                <circle class="node-core" cx="70" cy="460" r="3" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+
+                <!-- ============================ Window (foreground) ============= -->
+                <div class="window">
+                    <div class="window-bar">
+                        <span class="window-dot"></span>
+                        <span class="window-dot"></span>
+                        <span class="window-dot"></span>
+                        <span class="window-title">Elastron — production · 8 nodes · 142 indices</span>
+                    </div>
+                    <div class="window-body">
+                        <img src="assets/img/v2/dashboard.png" alt="Elastron dashboard" loading="eager" />
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <a
-          class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
-          href="#download"
-		  onclick="gtag('event', 'click', {'event_category': 'website','event_label': 'download'})"
-          >Download Now</a
-        >
-      </div>
     </header>
 
-    <!-- Features-->
-    <section class="page-section" id="features">
-      <div class="container">
-        <div class="text-center">
-          <h2 class="section-heading text-uppercase">Features</h2>
-          <h3 class="section-subheading text-muted">
-            Things it can do now and planned
-          </h3>
-		  <p class="mb-5">This Elasticsearch GUI client allows you to connect the Elasticsearch server and manage data and configuration. You can install this desktop client on your Mac, Windows or Linux. Elasticsearch client can be used to view and edit mappings, settings, aliases, and indices. You can perform the search operations on your Elasticsearch indices using this desktop client application. The Elasticsearch results can be displayed in different view modes. This desktop client lets you control the Indices, Shards and Allocation stats and configuration. It is possible to import and export data and configuration of Elasticsearch using this desktop client for OSX, Windows and Linux. This is a great alternative to Elasticsearch Plugin Head. In the latest version you can do a profiling of the request. Documents updating and reindexing is available too.</p>
-          <h3>Important!</h3>
-          <p class="mb-5">Since version 1.5.0 you have to re-install the application.</p>
-          <h3>How to open the app?</h3>
-          <p class="mb-5">If you cannot open the app on MacOS for the first time use <code>Open Anyway</code> security feature in order to open the app to avoid MacOS security warning. This is 100% safe.</p>
+    <!-- ======================================================= Features -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="reveal">
+                <span class="eyebrow">What it does</span>
+                <h2 class="section-title">A real GUI for the parts of Elasticsearch you actually touch.</h2>
+                <p class="section-lead">
+                    Cluster monitoring, indices, search, query profiling, an API
+                    playground — all in one native desktop app. No browser tab to lose,
+                    no curl to remember.
+                </p>
+            </div>
+
+            <div class="bento">
+
+                <article class="card card--dashboard reveal">
+                    <div class="card-tag">01 · Cluster monitoring</div>
+                    <h3 class="card-title">Health and performance at a glance.</h3>
+                    <p class="card-body">
+                        Live health, node and shard layout, throughput, latency — laid out
+                        in one place. Spot trouble before it pages you.
+                    </p>
+                    <div class="card-art">
+                        <div class="card-screenshot">
+                            <img src="assets/img/v2/monitoring.png" alt="Elastron monitoring" loading="eager" />
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card card--search reveal">
+                    <div class="card-tag">02 · Search</div>
+                    <h3 class="card-title">Filters, aggregations, profiling.</h3>
+                    <p class="card-body">
+                        Compose complex queries with filters and aggregations. Inspect
+                        results, then explain or profile any query to find what's slow.
+                    </p>
+                    <div class="card-art">
+                        <div class="art-aggs" aria-hidden="true">
+                            <div class="art-aggs-row">
+                                <span class="lbl">status:open</span>
+                                <span class="bar"><i style="--w: 92%"></i></span>
+                                <span class="num">1,284</span>
+                            </div>
+                            <div class="art-aggs-row">
+                                <span class="lbl">status:pending</span>
+                                <span class="bar"><i style="--w: 38%"></i></span>
+                                <span class="num">534</span>
+                            </div>
+                            <div class="art-aggs-row">
+                                <span class="lbl">status:closed</span>
+                                <span class="bar"><i style="--w: 22%"></i></span>
+                                <span class="num">312</span>
+                            </div>
+                            <div class="art-aggs-row">
+                                <span class="lbl">status:archived</span>
+                                <span class="bar"><i style="--w: 8%"></i></span>
+                                <span class="num">114</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card card--indices reveal">
+                    <div class="card-tag">03 · Indices, documents, mappings</div>
+                    <h3 class="card-title">Manage every layer.</h3>
+                    <p class="card-body">
+                        Edit mappings, browse and update documents, tweak settings — all
+                        without composing a single PUT.
+                    </p>
+                    <div class="card-art">
+                        <div class="card-screenshot">
+                            <img src="assets/img/v2/indices.png" alt="Elastron index management" loading="eager" />
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card card--updates reveal">
+                    <div class="card-tag">04 · API Playground</div>
+                    <h3 class="card-title">Hit any endpoint, see the response.</h3>
+                    <p class="card-body">
+                        A built-in playground for ad-hoc API calls. Method, path, body,
+                        headers — fire it, read the response, move on.
+                    </p>
+                    <div class="card-art">
+                        <pre class="art-query" aria-hidden="true"><span class="c">// any endpoint, any method</span>
+<span class="k">POST</span> /products/_search
+{
+  <span class="s">"query"</span>: {
+    <span class="s">"bool"</span>: {
+      <span class="s">"must"</span>:   [{ <span class="s">"match"</span>: { <span class="s">"name"</span>: <span class="s">"shoes"</span> } }],
+      <span class="s">"filter"</span>: [{ <span class="s">"term"</span>:  { <span class="s">"in_stock"</span>: <span class="n">true</span> } }]
+    }
+  },
+  <span class="s">"aggs"</span>: { <span class="s">"by_brand"</span>: { <span class="s">"terms"</span>: { <span class="s">"field"</span>: <span class="s">"brand"</span> } } }
+}</pre>
+                    </div>
+                </article>
+
+                <article class="card card--dark reveal">
+                    <div class="card-tag">05 · Dark mode</div>
+                    <h3 class="card-title">Made for the dark side.</h3>
+                    <p class="card-body">Built dark-first. Light mode if you must.</p>
+                    <div class="card-art">
+                        <div class="art-split" aria-hidden="true">
+                            <div class="art-split-window">
+                                <div class="art-split-bar">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="art-split-body">
+                                    <div class="art-split-half art-split-half--dark">
+                                        <span class="row r1"></span>
+                                        <span class="row r2"></span>
+                                        <span class="row r3"></span>
+                                        <span class="row r4 accent"></span>
+                                    </div>
+                                    <div class="art-split-half art-split-half--light">
+                                        <span class="row r1"></span>
+                                        <span class="row r2"></span>
+                                        <span class="row r3"></span>
+                                        <span class="row r4 accent"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card card--ie reveal">
+                    <div class="card-tag">06 · Multi-window</div>
+                    <h3 class="card-title">A window per cluster.</h3>
+                    <p class="card-body">
+                        Open as many clusters side-by-side as you need. Each window is its
+                        own session — no juggling tabs, no losing context.
+                    </p>
+                    <div class="card-art">
+                        <div class="art-windows" aria-hidden="true">
+                            <span class="aw aw--back"></span>
+                            <span class="aw aw--mid"></span>
+                            <span class="aw aw--front"></span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
         </div>
-        <ul class="timeline">
-          <li>
-            <div class="timeline-image">
-              <img
-			  	loading="lazy"
-                class="rounded-circle img-fluid"
-                src="assets/img/dash-board-2.png"
-                alt="Dashboard Feature"
-              />
-            </div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h4>Dashboard</h4>
-                <h6 class="subheading">Available</h6>
-              </div>
-              <div class="timeline-body">
-                <p class="text-muted">
-                  The dashboard to display Indices, Shards and Allocation stats
-                  and configuration.
-                </p>
-              </div>
-            </div>
-          </li>
-          <li class="timeline-inverted">
-            <div class="timeline-image">
-              <img
-			    loading="lazy"
-                class="rounded-circle img-fluid"
-                src="assets/img/search.png"
-                alt="Search Feature"
-              />
-            </div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h4>Search</h4>
-                <h6 class="subheading">Available</h6>
-              </div>
-              <div class="timeline-body">
-                <p class="text-muted">
-                  Search over indices using body query or uri query parameters.
-                  Sorting and pagination is available. Different search results view for hits, aggregations, and raw response.
-                </p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="timeline-image">
-              <img
-			    loading="lazy"
-                class="rounded-circle img-fluid"
-                src="assets/img/index.png"
-                alt="Index Management Feature"
-              />
-            </div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h4>Index Management</h4>
-                <h6 class="subheading">Available</h6>
-              </div>
-              <div class="timeline-body">
-                <p class="text-muted">
-                  Manage settings, mappings, aliases, templates and so on.
-                  Create, delete and wipe indices.
-                </p>
-              </div>
-            </div>
-          </li>
-          <li class="timeline-inverted">
-            <div class="timeline-image">
-              <img
-			    loading="lazy"
-                class="rounded-circle img-fluid"
-                src="assets/img/update.png"
-                alt="Auto Updates"
-              />
-            </div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h4>Automatic Updates</h4>
-                <h6 class="subheading">Available</h6>
-              </div>
-              <div class="timeline-body">
-                <p class="text-muted">
-                  Elastron updates itself automatically. No need to check for the newer version manually. And it is free!
-                </p>
-              </div>
-            </div>
-          </li>
-          <li class="timeline">
-            <div class="timeline-image">
-              <img
-			    loading="lazy"
-                class="rounded-circle img-fluid"
-                src="assets/img/dark-mode.jpg"
-                alt="Dark Mode"
-              />
-            </div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h4>Dark Mode</h4>
-                <h6 class="subheading">Available</h6>
-              </div>
-              <div class="timeline-body">
-                <p class="text-muted">
-                  If you are a dark-side developer, Dark Mode is here for you!
-                </p>
-              </div>
-            </div>
-          </li>
-          <li class="timeline-inverted">
-            <div class="timeline-image">
-              <img
-			    loading="lazy"
-                class="rounded-circle img-fluid"
-                src="assets/img/ie.png"
-                alt="Import Export feature"
-              />
-            </div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h4>Import and Export</h4>
-                <h6 class="subheading">Available</h6>
-              </div>
-              <div class="timeline-body">
-                <p class="text-muted">
-                  Create data and configuration dumps to a file or the another index and/or server!
-                </p>
-              </div>
-            </div>
-          </li>
-          <li class="timeline-inverted">
-            <div class="timeline-image">
-              <h4>More<br />Features<br />To Come!</h4>
-            </div>
-          </li>
-        </ul>
-      </div>
     </section>
 
-    <!-- Download-->
-    <section class="page-section" id="download" style="background: #eee;">
-      <div class="container">
-        <div class="text-center">
-          <h2 class="section-heading text-uppercase">Download</h2>
-          <h3 class="section-subheading text-muted">
-            For MacOS, Windows, Linux
-          </h3>
+    <!-- ============================================================ FAQ -->
+    <section class="section" id="faq">
+        <div class="container faq-grid">
+            <div class="faq-head reveal">
+                <span class="eyebrow">Questions</span>
+                <h2 class="section-title">Things people ask before downloading.</h2>
+                <p class="section-lead">
+                    Short answers. If you have something that isn't here,
+                    <a href="https://github.com/antonkorotkov/elastron/issues" target="_blank" rel="noopener">open an
+                        issue</a>.
+                </p>
+            </div>
+
+            <div class="faq-list reveal">
+
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        <span>Is Elastron free?</span>
+                        <span class="chev" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-a">
+                        <div>
+                            <p>
+                                Yes. Elastron is free and open source under the MIT license. There is no paid tier, no
+                                feature gate, no &ldquo;PRO&rdquo; version waiting in the wings. The full source lives
+                                on
+                                <a href="https://github.com/antonkorotkov/elastron" target="_blank"
+                                    rel="noopener">GitHub</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        <span>How do I open it on macOS the first time?</span>
+                        <span class="chev" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-a">
+                        <div>
+                            <p>
+                                On a fresh install, macOS Gatekeeper may block the app. Right-click (or
+                                <kbd>Control</kbd>-click) the Elastron icon in <code>Applications</code> and choose
+                                <strong>Open</strong>, then confirm <strong>Open Anyway</strong> in the security dialog.
+                                You only need to do this once. After that, Elastron launches normally.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        <span>Does Elastron send my cluster data anywhere?</span>
+                        <span class="chev" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-a">
+                        <div>
+                            <p>
+                                No. Elastron talks directly to your cluster from your machine. Cluster contents,
+                                queries, and credentials never leave your network. The website uses Google
+                                Analytics for visit and download stats — no cluster data is involved.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        <span>Which Elasticsearch versions are supported?</span>
+                        <span class="chev" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-a">
+                        <div>
+                            <p>Elasticsearch <strong>8.x</strong> and <strong>9.x</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <div class="row text-center">
-          <div class="col-md-6">
-            <h4 class="my-3">Elastron</h4>
-            <p class="text-muted">
-              Basic version of Elastron for MacOS, Windows, Linux. <br />Includes all free
-              features.<br />
-            </p>
-            <a
-			  target="_blank"
-              class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
-              href="https://github.com/antonkorotkov/elastron/releases/latest"
-			  onclick="gtag('event', 'app', {'event_category': 'usage','event_label': 'download'});gtag('event', 'app', {'event_category': 'download_version','event_label': 'latest'});"
-              >Free Download</a
-            >
-          </div>
-          <div class="col-md-6">
-            <h4 class="my-3">Elastron PRO</h4>
-            <p class="text-muted">
-              We decided that all the PRO features will be free too!
-            </p>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- Footer-->
-    <footer class="footer py-4">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-4 text-lg-left">Copyright &copy; Elastron 2020 - Now</div>
-          <div class="col-lg-4 my-3 my-lg-0">
-            🇺🇦 Слава Україні! Героям Слава!
-          </div>
-          <div class="col-lg-4 text-lg-right">
-            <a class="mr-3" href="/privacy.html">Privacy Policy</a>
-            <a href="/terms.html">Terms of Use</a>
-          </div>
+    <!-- ======================================================= Download -->
+    <section class="section" id="download">
+        <div class="container">
+            <div class="reveal">
+                <span class="eyebrow">Download</span>
+                <h2 class="section-title">Get Elastron.</h2>
+                <p class="section-lead">For macOS, Windows, and Linux. Free, forever.</p>
+            </div>
+
+            <div class="download-card reveal">
+                <span class="download-platform">
+                    <span data-platform-icon></span>
+                    <span data-platform-label>macOS</span>
+                </span>
+
+                <div>
+                    <a class="btn btn-primary" data-download-primary
+                        href="https://github.com/antonkorotkov/elastron/releases/latest" target="_blank" rel="noopener"
+                        onclick="gtag('event', 'app', {'event_category': 'usage','event_label': 'download'});gtag('event', 'app', {'event_category': 'download_version','event_label': 'latest'});">
+                        <span data-platform-icon></span>
+                        Download for <span data-platform-label>your OS</span>
+                        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M12 5v14M5 12l7 7 7-7" />
+                        </svg>
+                    </a>
+                </div>
+
+                <p class="download-meta">
+                    <b data-version>latest version</b> · released <span data-version-date>recently</span>
+                    · MIT licensed
+                </p>
+
+                <details class="downloads-all">
+                    <summary>Show all platforms</summary>
+                    <div class="downloads-grid" data-downloads-all></div>
+                </details>
+            </div>
         </div>
-      </div>
+    </section>
+
+    <!-- ========================================================= Footer -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div>&copy; Elastron 2020 – Now</div>
+            <div>🇺🇦 Слава Україні! Героям Слава!</div>
+            <div>
+                <a href="https://github.com/antonkorotkov/elastron" target="_blank" rel="noopener">GitHub</a>
+                <a href="/privacy.html">Privacy</a>
+                <a href="/terms.html">Terms</a>
+            </div>
+        </div>
     </footer>
 
-    <!-- Bootstrap core JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" SameSite=None></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <!-- Third party plugin JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
-  </body>
+</body>
+
 </html>
