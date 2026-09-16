@@ -14,7 +14,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description"
-        content="Elastron is the desktop GUI client for Elasticsearch 8 and 9 on macOS, Windows, and Linux. Manage indices and documents, run queries, profile and explain — by clicking buttons. Free and open source." />
+        content="Elastron is the desktop GUI client for Elasticsearch 8 and 9 on macOS, Windows, and Linux. Manage indices and documents, run queries, profile and explain — by clicking buttons, or by asking the built-in AI assistant. Free and open source." />
     <meta name="author" content="Anton Korotkov" />
     <meta name="theme-color" content="#09090b" />
     <title>Elastron — Elasticsearch desktop GUI client for macOS, Windows, Linux</title>
@@ -33,12 +33,14 @@
     <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "softwareapplication",
+    "@type": "SoftwareApplication",
     "name": "Elastron",
-    "operatingSystem": "MacOS, Windows, Linux",
+    "operatingSystem": "macOS, Windows, Linux",
     "applicationCategory": "DeveloperApplication",
     "downloadUrl": "https://github.com/antonkorotkov/elastron/releases/latest",
-    "releaseNotes": "Stability and security updates",
+    "releaseNotes": "https://github.com/antonkorotkov/elastron/releases/latest",
+    "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+    "isAccessibleForFree": true,
     "offers": {
       "@type": "Offer",
       "price": "0.00",
@@ -52,7 +54,7 @@
     <meta property="og:title" content="Elastron — Elasticsearch desktop GUI client" />
     <meta property="og:image" content="https://elastron.eney.solutions/assets/img/logo.png" />
     <meta property="og:description"
-        content="A desktop GUI for Elasticsearch 8 and 9 on macOS, Windows, Linux. Manage indices and documents, run queries, profile and explain — by clicking buttons. Free and open source." />
+        content="A desktop GUI for Elasticsearch 8 and 9 on macOS, Windows, Linux. Manage indices and documents, run queries, profile and explain — by clicking buttons, or by asking the built-in AI assistant. Free and open source." />
     <meta property="og:type" content="website" />
 </head>
 
@@ -69,9 +71,6 @@
             <div class="nav-links">
                 <a href="#features"
                     onclick="gtag('event', 'click', {'event_category': 'website','event_label': 'features'})">Features</a>
-                <a href="https://www.youtube.com/playlist?list=PLuZZ38tzXXqDQ6YDwpu7l-2Cs3WV2kKJj" target="_blank"
-                    rel="noopener"
-                    onclick="gtag('event', 'click', {'event_category': 'website','event_label': 'demo'})">Demo</a>
                 <a href="#faq">FAQ</a>
                 <a href="#download"
                     onclick="gtag('event', 'click', {'event_category': 'website','event_label': 'download'})">Download</a>
@@ -102,7 +101,7 @@
                 <p class="hero-sub">
                     A desktop GUI for Elasticsearch on macOS, Windows, and Linux.
                     Free, open source, and built for engineers who'd rather not memorize
-                    the bulk API.
+                    the bulk API. Or skip the buttons and ask the built-in AI assistant.
                 </p>
 
                 <div class="hero-cta">
@@ -127,9 +126,9 @@
                 </div>
 
                 <div class="hero-meta">
-                    <span><b>Free</b> · Open source · MIT</span>
+                    <span><b>Free</b> · Open source · GPL-3.0</span>
                     <span class="dot">·</span>
-                    <span><b data-version>v2.0.0</b> released <span data-version-date>recently</span></span>
+                    <span><b data-version>Latest version</b> released <span data-version-date>recently</span></span>
                 </div>
             </div>
 
@@ -228,7 +227,10 @@
                         <span class="window-title">Elastron — production · 8 nodes · 142 indices</span>
                     </div>
                     <div class="window-body">
-                        <img src="assets/img/v2/dashboard.png" alt="Elastron dashboard" loading="eager" />
+                        <img src="assets/img/v2/dashboard.png"
+                            srcset="assets/img/v2/dashboard-960.png 960w, assets/img/v2/dashboard.png 1440w"
+                            sizes="(min-width: 1024px) 470px, 80vw" width="1440" height="884"
+                            alt="Elastron dashboard" loading="eager" />
                     </div>
                 </div>
             </div>
@@ -244,15 +246,61 @@
                 <h2 class="section-title">A real GUI for the parts of Elasticsearch you actually touch.</h2>
                 <p class="section-lead">
                     Cluster monitoring, indices, search, query profiling, an API
-                    playground — all in one desktop app. No browser tab to lose,
-                    no curl to remember.
+                    playground, and an AI assistant that can use them for you — all in one
+                    desktop app. No browser tab to lose, no curl to remember.
                 </p>
             </div>
 
             <div class="bento">
 
+                <article class="card card--assistant reveal">
+                    <div class="card-tag">01 · AI assistant</div>
+                    <h3 class="card-title">Ask your cluster.</h3>
+                    <p class="card-body">
+                        Ask in plain words. The assistant looks up indices, mappings, and
+                        cluster health, runs searches, and hands queries over to Search or
+                        the Playground. Anything that changes data waits for your approval.
+                        Bring your own key for OpenAI, Anthropic, Google Gemini, or any
+                        OpenAI-compatible endpoint.
+                    </p>
+                    <div class="card-art">
+                        <div class="art-chat" aria-hidden="true">
+                            <div class="art-chat-msg art-chat-msg--user">
+                                Which orders index is the biggest? Delete July's, we archived it.
+                            </div>
+                            <div class="art-chat-step">
+                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+                                    stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12l5 5L20 7" />
+                                </svg>
+                                List indices
+                            </div>
+                            <div class="art-chat-msg">
+                                <b>orders-2026.08</b> is the biggest: 14,000 docs, 1.2&nbsp;MB.
+                                Deleting July's index needs your approval.
+                            </div>
+                            <div class="art-chat-approval">
+                                <div class="art-chat-approval-title">
+                                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor"
+                                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 3l10 18H2L12 3z" />
+                                        <path d="M12 10v4M12 17.5v.5" />
+                                    </svg>
+                                    Delete index
+                                </div>
+                                <code>DELETE /orders-2026.07</code>
+                                <p>This cannot be undone.</p>
+                                <div class="art-chat-actions">
+                                    <span class="art-chat-btn art-chat-btn--danger">Approve</span>
+                                    <span class="art-chat-btn">Decline</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
                 <article class="card card--dashboard reveal">
-                    <div class="card-tag">01 · Cluster monitoring</div>
+                    <div class="card-tag">02 · Cluster monitoring</div>
                     <h3 class="card-title">Health and performance at a glance.</h3>
                     <p class="card-body">
                         Live health, node and shard layout, throughput, latency — laid out
@@ -266,11 +314,13 @@
                 </article>
 
                 <article class="card card--search reveal">
-                    <div class="card-tag">02 · Search</div>
-                    <h3 class="card-title">Filters, aggregations, profiling.</h3>
+                    <div class="card-tag">03 · Search</div>
+                    <h3 class="card-title">Tabs, filters, aggregations, profiling.</h3>
                     <p class="card-body">
-                        Compose complex queries with filters and aggregations. Inspect
-                        results, then explain or profile any query to find what's slow.
+                        Keep several searches open in tabs, each with its own query and
+                        results, and find them again after a restart. Compose filters and
+                        aggregations, inspect results, then explain or profile any query to
+                        find what's slow.
                     </p>
                     <div class="card-art">
                         <div class="art-aggs" aria-hidden="true">
@@ -299,11 +349,12 @@
                 </article>
 
                 <article class="card card--indices reveal">
-                    <div class="card-tag">03 · Indices, documents, mappings</div>
+                    <div class="card-tag">04 · Indices, documents, mappings</div>
                     <h3 class="card-title">Manage every layer.</h3>
                     <p class="card-body">
                         Edit mappings, browse and update documents, tweak settings — all
-                        without composing a single PUT.
+                        without composing a single PUT. Copy an index name or open it in
+                        Search straight from the list.
                     </p>
                     <div class="card-art">
                         <div class="card-screenshot">
@@ -313,11 +364,13 @@
                 </article>
 
                 <article class="card card--updates reveal">
-                    <div class="card-tag">04 · API Playground</div>
+                    <div class="card-tag">05 · API Playground</div>
                     <h3 class="card-title">Hit any endpoint, see the response.</h3>
                     <p class="card-body">
                         A built-in playground for ad-hoc API calls. Method, path, body,
-                        headers — fire it, read the response, move on.
+                        headers — fire it, read the response, move on. Your draft stays put
+                        while you move around the app, and templates keep the requests you
+                        reuse.
                     </p>
                     <div class="card-art">
                         <pre class="art-query" aria-hidden="true"><span class="c">// any endpoint, any method</span>
@@ -334,8 +387,44 @@
                     </div>
                 </article>
 
+                <article class="card card--connections reveal">
+                    <div class="card-tag">06 · Connections</div>
+                    <h3 class="card-title">Every cluster, one click away.</h3>
+                    <p class="card-body">
+                        Save as many connections as you need, give each one a color so
+                        production never passes for staging, and reach private clusters
+                        through an SSH tunnel. The plug in the header turns red the moment a
+                        cluster stops answering.
+                    </p>
+                    <div class="card-art">
+                        <div class="art-conns" aria-hidden="true">
+                            <div class="art-conn" style="--c: #e5484d">
+                                <span class="art-conn-pill">production</span>
+                                <span class="art-conn-host">es-prod.internal:9200</span>
+                                <span class="art-conn-tag">SSH</span>
+                            </div>
+                            <div class="art-conn" style="--c: #f5a524">
+                                <span class="art-conn-pill">staging</span>
+                                <span class="art-conn-host">es-staging.internal:9200</span>
+                                <span class="art-conn-tag">SSH</span>
+                            </div>
+                            <div class="art-conn" style="--c: #30a46c">
+                                <span class="art-conn-pill">local</span>
+                                <span class="art-conn-host">localhost:9200</span>
+                            </div>
+                            <div class="art-conn-status">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 2v5M15 2v5M6 7h12v4a6 6 0 0 1-12 0V7zM12 17v5" />
+                                </svg>
+                                Reachable
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
                 <article class="card card--dark reveal">
-                    <div class="card-tag">05 · Dark mode</div>
+                    <div class="card-tag">07 · Dark mode</div>
                     <h3 class="card-title">Made for the dark side.</h3>
                     <p class="card-body">Built dark-first. Light mode if you must.</p>
                     <div class="card-art">
@@ -364,11 +453,12 @@
                 </article>
 
                 <article class="card card--ie reveal">
-                    <div class="card-tag">06 · Multi-window</div>
+                    <div class="card-tag">08 · Multi-window</div>
                     <h3 class="card-title">A window per cluster.</h3>
                     <p class="card-body">
                         Open as many clusters side-by-side as you need. Each window is its
-                        own session — no juggling tabs, no losing context.
+                        own session, and the Window menu jumps between them — no juggling
+                        tabs, no losing context.
                     </p>
                     <div class="card-art">
                         <div class="art-windows" aria-hidden="true">
@@ -406,11 +496,47 @@
                     <div class="faq-a">
                         <div>
                             <p>
-                                Yes. Elastron is free and open source under the MIT license. There is no paid tier, no
-                                feature gate, no &ldquo;PRO&rdquo; version waiting in the wings. The full source lives
-                                on
+                                Yes. Elastron is free and open source under the
+                                <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener">GNU
+                                    General Public License, version 3 or later</a>. There is no paid tier, no feature
+                                gate, no &ldquo;PRO&rdquo; version waiting in the wings. The full source lives on
                                 <a href="https://github.com/antonkorotkov/elastron" target="_blank"
                                     rel="noopener">GitHub</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        <span>Do I need an AI key to use Elastron?</span>
+                        <span class="chev" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-a">
+                        <div>
+                            <p>
+                                No. Everything except the assistant works without one. To use the assistant, open
+                                <strong>Settings</strong> (the gear in the header), choose a provider &mdash; OpenAI,
+                                Anthropic, Google Gemini, or any OpenAI-compatible endpoint, such as a model you run
+                                yourself &mdash; and enter your own API key and model. Your provider bills that usage
+                                to your own account; Elastron adds nothing on top.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        <span>Can the assistant change my cluster without asking?</span>
+                        <span class="chev" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-a">
+                        <div>
+                            <p>
+                                No. Reading &mdash; listing indices, checking mappings, running searches &mdash; happens
+                                on its own. Anything that writes, such as creating or deleting an index or changing
+                                documents, stops at an approval card that shows exactly what will run, and nothing
+                                happens until you approve it. Requests that can't be undone are marked as such.
                             </p>
                         </div>
                     </div>
@@ -424,9 +550,18 @@
                     <div class="faq-a">
                         <div>
                             <p>
-                                No. Elastron talks directly to your cluster from your machine. Cluster contents,
-                                queries, and credentials never leave your network. The website uses Google
-                                Analytics for visit and download stats — no cluster data is involved.
+                                Elastron talks to your cluster directly from your machine; there is no Elastron server
+                                in between. The app reports anonymous usage to Google Analytics &mdash; the app
+                                version, which screens are opened, the Elasticsearch version of clusters you connect
+                                to, and that an assistant message was sent or answered. It never reports hosts,
+                                credentials, queries, or documents.
+                            </p>
+                            <p>
+                                The AI assistant is the one exception. When you use it, your messages and the cluster
+                                data it looks up are sent to the AI provider you configured, straight from your
+                                machine and with your own key. Results are capped before they are sent, and nothing
+                                goes to any provider until you set one up. See the
+                                <a href="/privacy.html">privacy policy</a> for details.
                             </p>
                         </div>
                     </div>
@@ -478,7 +613,7 @@
 
                 <p class="download-meta">
                     <b data-version>latest version</b> · released <span data-version-date>recently</span>
-                    · MIT licensed
+                    · GPL-3.0 licensed
                 </p>
 
                 <details class="downloads-all">
@@ -492,10 +627,11 @@
     <!-- ========================================================= Footer -->
     <footer class="footer">
         <div class="container footer-inner">
-            <div>&copy; Elastron 2020 – Now</div>
+            <div>&copy; 2020&ndash;2026 Anton Korotkov</div>
             <div>🇺🇦 Слава Україні! Героям Слава!</div>
             <div>
                 <a href="https://github.com/antonkorotkov/elastron" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://github.com/sponsors/antonkorotkov" target="_blank" rel="noopener">Sponsor</a>
                 <a href="/privacy.html">Privacy</a>
                 <a href="/terms.html">Terms</a>
             </div>
