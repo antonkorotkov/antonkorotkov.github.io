@@ -14,7 +14,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description"
-        content="Elastron is the desktop GUI client for Elasticsearch 8 and 9 on macOS, Windows, and Linux. Manage indices and documents, run queries, profile and explain — by clicking buttons, or by asking the built-in AI assistant. Free and open source." />
+        content="Elastron is the desktop GUI client for Elasticsearch 8 and 9 on macOS, Windows, and Linux. Manage indices, documents, users, and roles, run queries, profile and explain — by clicking buttons, or by asking the built-in AI assistant. Free and open source." />
     <meta name="author" content="Anton Korotkov" />
     <meta name="theme-color" content="#09090b" />
     <title>Elastron — Elasticsearch desktop GUI client for macOS, Windows, Linux</title>
@@ -54,7 +54,7 @@
     <meta property="og:title" content="Elastron — Elasticsearch desktop GUI client" />
     <meta property="og:image" content="https://elastron.eney.solutions/assets/img/logo.png" />
     <meta property="og:description"
-        content="A desktop GUI for Elasticsearch 8 and 9 on macOS, Windows, Linux. Manage indices and documents, run queries, profile and explain — by clicking buttons, or by asking the built-in AI assistant. Free and open source." />
+        content="A desktop GUI for Elasticsearch 8 and 9 on macOS, Windows, Linux. Manage indices, documents, users, and roles, run queries, profile and explain — by clicking buttons, or by asking the built-in AI assistant. Free and open source." />
     <meta property="og:type" content="website" />
 </head>
 
@@ -245,9 +245,9 @@
                 <span class="eyebrow">What it does</span>
                 <h2 class="section-title">A real GUI for the parts of Elasticsearch you actually touch.</h2>
                 <p class="section-lead">
-                    Cluster monitoring, indices, search, query profiling, an API
-                    playground, and an AI assistant that can use them for you — all in one
-                    desktop app. No browser tab to lose, no curl to remember.
+                    Cluster monitoring, indices, search, query profiling, users and roles,
+                    an API playground, and an AI assistant that can use them for you — all
+                    in one desktop app. No browser tab to lose, no curl to remember.
                 </p>
             </div>
 
@@ -363,8 +363,42 @@
                     </div>
                 </article>
 
+                <article class="card card--security reveal">
+                    <div class="card-tag">05 · Security</div>
+                    <h3 class="card-title">Manage Elasticsearch security.</h3>
+                    <p class="card-body">
+                        Control who can reach your cluster and what they can do, without
+                        leaving the app. Create and edit users, reset passwords, and enable or
+                        disable accounts. Define roles with cluster and index privileges, down
+                        to document- and field-level restrictions. Issue and revoke API keys.
+                    </p>
+                    <div class="card-art">
+                        <div class="art-roles" aria-hidden="true">
+                            <div class="art-roles-tabs">
+                                <span>Users</span>
+                                <span class="active">Roles</span>
+                                <span>API keys</span>
+                            </div>
+                            <div class="art-role">
+                                <span class="art-role-name">superuser</span>
+                                <span class="art-role-badge">reserved</span>
+                                <span class="art-role-privs">all</span>
+                            </div>
+                            <div class="art-role">
+                                <span class="art-role-name">tenant_reader</span>
+                                <span class="art-role-badge art-role-badge--restrict">documents</span>
+                                <span class="art-role-privs">read · logs-*</span>
+                            </div>
+                            <div class="art-role">
+                                <span class="art-role-name">ops_admin</span>
+                                <span class="art-role-privs">manage_security</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
                 <article class="card card--updates reveal">
-                    <div class="card-tag">05 · API Playground</div>
+                    <div class="card-tag">06 · API Playground</div>
                     <h3 class="card-title">Hit any endpoint, see the response.</h3>
                     <p class="card-body">
                         A built-in playground for ad-hoc API calls. Method, path, body,
@@ -388,7 +422,7 @@
                 </article>
 
                 <article class="card card--connections reveal">
-                    <div class="card-tag">06 · Connections</div>
+                    <div class="card-tag">07 · Connections</div>
                     <h3 class="card-title">Every cluster, one click away.</h3>
                     <p class="card-body">
                         Save as many connections as you need, give each one a color so
@@ -424,7 +458,7 @@
                 </article>
 
                 <article class="card card--dark reveal">
-                    <div class="card-tag">07 · Dark mode</div>
+                    <div class="card-tag">08 · Dark mode</div>
                     <h3 class="card-title">Made for the dark side.</h3>
                     <p class="card-body">Built dark-first. Light mode if you must.</p>
                     <div class="card-art">
@@ -453,7 +487,7 @@
                 </article>
 
                 <article class="card card--ie reveal">
-                    <div class="card-tag">08 · Multi-window</div>
+                    <div class="card-tag">09 · Multi-window</div>
                     <h3 class="card-title">A window per cluster.</h3>
                     <p class="card-body">
                         Open as many clusters side-by-side as you need. Each window is its
@@ -538,6 +572,11 @@
                                 documents, stops at an approval card that shows exactly what will run, and nothing
                                 happens until you approve it. Requests that can't be undone are marked as such.
                             </p>
+                            <p>
+                                Security is stricter still. The assistant can read users, roles, and API key details
+                                to answer questions, but it cannot create, change, or delete any of them, not even with
+                                your approval. Those changes are made in the Security screen.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -562,6 +601,24 @@
                                 machine and with your own key. Results are capped before they are sent, and nothing
                                 goes to any provider until you set one up. See the
                                 <a href="/privacy.html">privacy policy</a> for details.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-q" aria-expanded="false">
+                        <span>Do I need a paid Elasticsearch licence to manage users and roles?</span>
+                        <span class="chev" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-a">
+                        <div>
+                            <p>
+                                No. Users, roles, and API keys work on the free Basic licence, as long as security is
+                                enabled on the cluster and your account may manage it. Restricting a role to certain
+                                documents or fields is the exception: Elasticsearch reserves that for paid licences and
+                                trials. Elastron still offers it, and if the cluster refuses, it tells you the licence is
+                                the reason rather than showing a raw error.
                             </p>
                         </div>
                     </div>
